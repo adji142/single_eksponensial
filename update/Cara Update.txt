@@ -1,0 +1,10 @@
+1. Extract update.rar
+2. Copy and replace semua file ke C:/Xampp/HTDOCS/downstore
+=================================================================
+update database
+
+1. buka phpmyadmin
+2. pilih database dawnstore
+3. pilih tab sql
+4. copy semua isi file downstore.sql
+5. paste di tab sql -> klik go
