@@ -94,7 +94,7 @@
             $.ajax({
 				async:false,
               type: "post",
-              url: "<?=base_url()?>proses/GetInitalData",
+              url: "<?=base_url()?>Proses/GetInitalData",
               data: {TglAwal:TglAwal,TglAkhir:TglAkhir},
               dataType: "json",
               success: function (response) {
