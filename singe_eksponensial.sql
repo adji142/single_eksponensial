@@ -11,7 +11,7 @@
  Target Server Version : 100240
  File Encoding         : 65001
 
- Date: 06/11/2022 20:07:19
+ Date: 07/11/2022 21:49:50
 */
 
 SET NAMES utf8mb4;
@@ -42,9 +42,9 @@ CREATE TABLE `permission`  (
 -- ----------------------------
 INSERT INTO `permission` VALUES (1, 'Master', NULL, 'fa-pencil-square-o', '0', b'0', b'0', 0, b'0', NULL, NULL, NULL);
 INSERT INTO `permission` VALUES (2, 'Item Master Data', 'home/itemmaster', 'fa-pencil-square-o', '0', b'0', b'0', 1, b'1', NULL, NULL, NULL);
-INSERT INTO `permission` VALUES (3, 'Galery', 'home/itemgalery', 'fa-pencil-square-o', '0', b'0', b'0', 2, b'1', NULL, NULL, NULL);
-INSERT INTO `permission` VALUES (4, 'Transaksi', 'home/transaksi', 'fa-pencil-square-o', '0', b'0', b'0', 3, b'1', NULL, NULL, NULL);
-INSERT INTO `permission` VALUES (5, 'Proses Ramalan', 'home/proses', 'fa-pencil-square-o', '0', b'0', b'0', 4, b'1', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (3, 'Galery', 'home/itemgalery', 'fa-picture-o', '0', b'0', b'0', 2, b'1', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (4, 'Transaksi', 'home/transaksi', 'fa-envelope', '0', b'0', b'0', 3, b'1', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (5, 'Proses Ramalan', 'home/proses', 'fa-clipboard', '0', b'0', b'0', 4, b'1', NULL, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for permissionrole

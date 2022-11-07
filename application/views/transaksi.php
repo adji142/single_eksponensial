@@ -38,7 +38,7 @@
 <!--//faq-->
 	<!---->
 <div class="copy">
-    <p> &copy; 2020 TPA Putri Cempo. All Rights Reserved | Published by <a href="http://aistrick.com.com/" target="_blank">TPA Putri Cempo</a> </p>     
+    <p> &copy; 2020 AisSystem. All Rights Reserved | Published by <a href="http://aistrick.com.com/" target="_blank">AisSystem</a> </p>     
 </div>
 </div>
 </div>

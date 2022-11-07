@@ -50,7 +50,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <h1> <a class="navbar-brand" href="index.html">Putri Cempo</a></h1>         
+               <h1> <a class="navbar-brand" href="index.html">Forecast</a></h1>         
 			   </div>
 			 <div class=" border-bottom">
         	<div class="full-left">

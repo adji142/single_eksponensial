@@ -25,7 +25,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 	<div class="login">
-		<h1><a href="index.html">TPA PUTRI CEMPO </a></h1>
+		<h1><a href="index.html">FORECAST SINGLE EXPONENSIAL </a></h1>
 		<div class="login-bottom">
 			<h2>Login</h2>
 			<form id="loginform">

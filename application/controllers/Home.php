@@ -30,6 +30,10 @@ class home extends CI_Controller {
 	{
 		$this->load->view('Dashboard');
 	}
+	public function login()
+	{
+		$this->load->view('index');
+	}
 	// --------------------------------------- Master ----------------------------------------------------
 	public function itemmaster()
 	{
