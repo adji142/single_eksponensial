@@ -24,7 +24,6 @@ class Proses extends CI_Controller {
 		$this->load->model('ModelsExecuteMaster');
 		$this->load->model('GlobalVar');
 		$this->load->model('Apps_mod');
-		$this->load->model('LoginMod');
 	}
 
 	public function GetInitalData()
