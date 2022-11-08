@@ -48,7 +48,7 @@
         <div class="modal-body">
           <form class="form-horizontal" enctype='application/json' id="post_">
                 <div class="control-group">
-                    <label class="control-label">Harga Kain / Meter</label>
+                    <label class="control-label">Kode Item</label>
                     <div class="controls">
                         <input type="text" name="kodeitem" id="kodeitem" required="" placeholder="kodeitem">
                         <input type="hidden" name="formtype" id="formtype" value="add">

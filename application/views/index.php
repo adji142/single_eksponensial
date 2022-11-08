@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 		<!---->
 <div class="copy-right">
-            <p> &copy; 2020 TPA Putri Cempo <a href="http://w3layouts.com/" target="_blank">TPA Putri Cempo</a> </p>	    </div>  
+            <p> &copy; 2020 AIS System <a href="http://w3layouts.com/" target="_blank">AIS System</a> </p>	    </div>  
 <!---->
 <!--scrolling js-->
 <script src="<?php echo base_url();?>Assets/js/jquery.nicescroll.js"></script>
