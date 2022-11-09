@@ -11,11 +11,28 @@
  Target Server Version : 100240
  File Encoding         : 65001
 
- Date: 07/11/2022 21:49:50
+ Date: 09/11/2022 21:41:44
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for chart
+-- ----------------------------
+DROP TABLE IF EXISTS `chart`;
+CREATE TABLE `chart`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `UniqID` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `KodeItem` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Qty` int(11) NOT NULL,
+  `Harga` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of chart
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for permission
@@ -42,7 +59,7 @@ CREATE TABLE `permission`  (
 -- ----------------------------
 INSERT INTO `permission` VALUES (1, 'Master', NULL, 'fa-pencil-square-o', '0', b'0', b'0', 0, b'0', NULL, NULL, NULL);
 INSERT INTO `permission` VALUES (2, 'Item Master Data', 'home/itemmaster', 'fa-pencil-square-o', '0', b'0', b'0', 1, b'1', NULL, NULL, NULL);
-INSERT INTO `permission` VALUES (3, 'Galery', 'home/itemgalery', 'fa-picture-o', '0', b'0', b'0', 2, b'1', NULL, NULL, NULL);
+INSERT INTO `permission` VALUES (3, 'Galery', 'home/itemgalery', 'fa-picture-o', '0', b'0', b'0', 2, b'0', NULL, NULL, NULL);
 INSERT INTO `permission` VALUES (4, 'Transaksi', 'home/transaksi', 'fa-envelope', '0', b'0', b'0', 3, b'1', NULL, NULL, NULL);
 INSERT INTO `permission` VALUES (5, 'Proses Ramalan', 'home/proses', 'fa-clipboard', '0', b'0', b'0', 4, b'1', NULL, NULL, NULL);
 
@@ -105,13 +122,15 @@ CREATE TABLE `titemmasterdata`  (
   `kodeitem` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `namaitem` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `Harga` double(16, 2) NOT NULL,
+  `Image` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   PRIMARY KEY (`kodeitem`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of titemmasterdata
 -- ----------------------------
-INSERT INTO `titemmasterdata` VALUES ('123', '1asd', 123.00);
+INSERT INTO `titemmasterdata` VALUES ('123', '1asd', 15000.00, 'a2a3c042e5c7cd219f12c1191eeda1c6.png');
+INSERT INTO `titemmasterdata` VALUES ('124', 'sad', 15000.00, 'b7b01ae509e5a15ea25b268d78fc52f4.jpg');
 
 -- ----------------------------
 -- Table structure for transaksi
@@ -123,24 +142,53 @@ CREATE TABLE `transaksi`  (
   `KodeItem` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `Qty` double(16, 2) NOT NULL,
   `Harga` double(16, 2) NOT NULL,
+  `UUID` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Nama` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `NoWA` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of transaksi
 -- ----------------------------
-INSERT INTO `transaksi` VALUES (1, '2021-01-01', '123', 32.00, 123.00);
-INSERT INTO `transaksi` VALUES (2, '2021-02-01', '123', 56.00, 123.00);
-INSERT INTO `transaksi` VALUES (3, '2021-03-01', '123', 48.00, 123.00);
-INSERT INTO `transaksi` VALUES (4, '2021-04-01', '123', 63.00, 123.00);
-INSERT INTO `transaksi` VALUES (5, '2021-05-01', '123', 35.00, 123.00);
-INSERT INTO `transaksi` VALUES (6, '2021-06-01', '123', 47.00, 123.00);
-INSERT INTO `transaksi` VALUES (7, '2021-07-01', '123', 49.00, 123.00);
-INSERT INTO `transaksi` VALUES (8, '2021-08-01', '123', 57.00, 123.00);
-INSERT INTO `transaksi` VALUES (9, '2021-09-01', '123', 62.00, 123.00);
-INSERT INTO `transaksi` VALUES (10, '2021-10-01', '123', 65.00, 123.00);
-INSERT INTO `transaksi` VALUES (11, '2021-11-01', '123', 58.00, 123.00);
-INSERT INTO `transaksi` VALUES (12, '2021-12-01', '123', 53.00, 123.00);
+INSERT INTO `transaksi` VALUES (1, '2022-11-09', '123', 2.00, 15000.00, '250100646453736107000537365768136624', 'paw', '02251');
+INSERT INTO `transaksi` VALUES (2, '2022-11-09', '124', 2.00, 15000.00, '250100646453736107000537365768136624', 'paw', '02251');
+INSERT INTO `transaksi` VALUES (4, '2022-11-09', '123', 5.00, 15000.00, '250100646453736107000537365768136624', 'sdasd', '+6281325058258');
+INSERT INTO `transaksi` VALUES (5, '2022-11-09', '124', 6.00, 15000.00, '250100646453736107000537365768136624', 'sdasd', '+6281325058258');
+INSERT INTO `transaksi` VALUES (7, '2022-11-08', '123', 4.00, 15000.00, '250100646453736107000537365768136624', 'asd', 'asd');
+INSERT INTO `transaksi` VALUES (8, '2022-11-08', '124', 2.00, 15000.00, '250100646453736107000537365768136624', 'asd', 'asd');
+INSERT INTO `transaksi` VALUES (10, '2022-11-06', '123', 2.00, 15000.00, '250100646453736107000537365768136624', 'sdasd', '123');
+INSERT INTO `transaksi` VALUES (11, '2022-11-06', '124', 44.00, 15000.00, '250100646453736107000537365768136624', 'sdasd', '123');
+
+-- ----------------------------
+-- Table structure for transaksi_copy1
+-- ----------------------------
+DROP TABLE IF EXISTS `transaksi_copy1`;
+CREATE TABLE `transaksi_copy1`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `TglTransaksi` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `KodeItem` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `Qty` double(16, 2) NOT NULL,
+  `Harga` double(16, 2) NOT NULL,
+  `UUID` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of transaksi_copy1
+-- ----------------------------
+INSERT INTO `transaksi_copy1` VALUES (1, '2021-01-01', '123', 32.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (2, '2021-02-01', '123', 56.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (3, '2021-03-01', '123', 48.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (4, '2021-04-01', '123', 63.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (5, '2021-05-01', '123', 35.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (6, '2021-06-01', '123', 47.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (7, '2021-07-01', '123', 49.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (8, '2021-08-01', '123', 57.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (9, '2021-09-01', '123', 62.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (10, '2021-10-01', '123', 65.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (11, '2021-11-01', '123', 58.00, 123.00, '');
+INSERT INTO `transaksi_copy1` VALUES (12, '2021-12-01', '123', 53.00, 123.00, '');
 
 -- ----------------------------
 -- Table structure for userrole

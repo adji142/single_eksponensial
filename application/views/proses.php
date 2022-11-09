@@ -29,9 +29,9 @@
 		<div class="grid-form">
             <div class="grid-form1">
                 <div class="form-group">
-                    <input type="month" name="TglAwal" id="TglAwal">
+                    <input type="date" name="TglAwal" id="TglAwal">
                     <label>S/D</label>
-                    <input type="month" name="TglAkhir" id="TglAkhir">
+                    <input type="date" name="TglAkhir" id="TglAkhir">
                     <button class="span12 btn btn-danger" name="getdata" id="getdata">Get Data</button>
                 </div>
                 <div class="dx-viewport demo-container">
@@ -41,11 +41,11 @@
                     </div>
                 </div>
                 <br>
-                Total Transaksi : <div id="trxTotal"> </div> <br>
+                <!-- Total Transaksi : <div id="trxTotal"> </div> <br>
                 Count Transaksi : <div id="trxCount"> </div><br>
-                Alpha : <div id="trxAlpha"></div> <br>
+                Alpha : <div id="trxAlpha"></div> <br> -->
             </div>
-            <div class="grid-form1">
+            <!-- <div class="grid-form1">
                 <h5 id="forms-inline">Hasil Perhitungan Forecast</h5>
                 <div class="dx-viewport demo-container">
                     <div id="data-grid-demo">
@@ -56,13 +56,11 @@
             </div>
         
             <div class="grid-form1">
-                <!-- <div class="col-md-8 content-top-2"> -->
-                    <h5 id="forms-inline">Grafik</h5>
-                    <div class="container">
-                        <canvas id="myChart" width="6" height="6"></canvas>
-                    </div>
-                <!-- </div> -->
-            </div>
+                <h5 id="forms-inline">Grafik</h5>
+                <div class="container">
+                    <canvas id="myChart" width="6" height="6"></canvas>
+                </div>
+            </div> -->
         </div>
     </div>
 <div class="copy">
@@ -94,21 +92,22 @@
             $.ajax({
 				async:false,
               type: "post",
-              url: "<?=base_url()?>Proses/GetInitalData",
+              url: "<?=base_url()?>Proses/GetForcasting",
               data: {TglAwal:TglAwal,TglAkhir:TglAkhir},
               dataType: "json",
               success: function (response) {
+                console.log(response);
                 if (response.success) {
-                    datauji = response.data;
-                    bindGrid(response.data);
-                    bindGridforcast(response.dataForcast);
-                    ShowChart(response.dataForcast);
-                    $.each(response.dataOpt,function (k,v) {
-                        console.log(v.Total);
-                        $('#trxTotal').text(v.Total);
-                        $('#trxCount').text(v.Count);
-                        $('#trxAlpha').text(v.Alpha);
-                      });
+                    // datauji = response.data;
+                    bindGrid(response.dataForcast);
+                    // bindGridforcast(response.dataForcast);
+                    // ShowChart(response.dataForcast);
+                    // $.each(response.dataOpt,function (k,v) {
+                    //     console.log(v.Total);
+                    //     $('#trxTotal').text(v.Total);
+                    //     $('#trxCount').text(v.Count);
+                    //     $('#trxAlpha').text(v.Alpha);
+                    //   });
 
                     // $('#trxTotal').val(response.dataOpt[0].Total);
                     // $('#trxCount').val(response.dataOpt[0].Count);
@@ -133,7 +132,7 @@
         $("#gridContainer").dxDataGrid({
             allowColumnResizing: true,
             dataSource: data,
-            keyExpr: "BulanIndex",
+            keyExpr: "KodeItem",
             showBorders: true,
             allowColumnReordering: true,
             allowColumnResizing: true,
@@ -154,18 +153,18 @@
             },
             columns: [
                 {
-                    dataField: "BulanIndex",
-                    caption: "Kode",
+                    dataField: "KodeItem",
+                    caption: "Kode Item",
                     allowEditing:false
                 },
                 {
-                    dataField: "Bulan",
-                    caption: "Bulan",
+                    dataField: "FixForecast",
+                    caption: "Forecast",
                     allowEditing:false
                 },
                 {
-                    dataField: "Total",
-                    caption: "Total",
+                    dataField: "Alpha",
+                    caption: "Alpha",
                     allowEditing:false
                 }
             ],

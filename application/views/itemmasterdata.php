@@ -66,6 +66,13 @@
                         <input type="number" name="Harga" id="Harga" required="" placeholder="Harga">
                     </div>
                 </div>
+                <div class="control-group">
+                    <label class="control-label">Gambar</label>
+                    <div class="controls">
+                        <!-- <input type="number" name="Harga" id="Harga" required="" placeholder="Harga"> -->
+                        <input type="file" name="file">
+                    </div>
+                </div>
                 <button class="btn btn-primary" id="btn_Save">Save</button>
             </form>
         </div>
@@ -101,7 +108,12 @@
             $.ajax({
                 type    :'post',
                 url     : '<?=base_url()?>ItemMaster/appendTransaksi',
-                data    : me.serialize(),
+                // data    : me.serialize(),
+                data:new FormData(this),
+                processData:false,
+                contentType:false,
+                cache:false,
+                async:false,
                 dataType: 'json',
                 success : function (response) {
                   if(response.success == true){

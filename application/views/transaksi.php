@@ -241,9 +241,6 @@
                 },
                 editing: {
                     mode: "row",
-                    allowAdding:true,
-                    allowUpdating: true,
-                    allowDeleting: true,
                     texts: {
                         confirmDeleteMessage: ''  
                     }
@@ -269,16 +266,6 @@
                         caption: "Tanggal Transaksi",
                         allowEditing:false
                     },
-                    // {
-                    //     dataField: "NoRef",
-                    //     caption: "No. Ref",
-                    //     allowEditing:false
-                    // },
-                    // {
-                    //     dataField: "Merk",
-                    //     caption: "Merk",
-                    //     allowEditing:false
-                    // },
                     {
                         dataField: "KodeItem",
                         caption: "KodeItem",
@@ -292,6 +279,16 @@
                     {
                         dataField: "Harga",
                         caption: "Harga",
+                        allowEditing:false
+                    },
+                    {
+                        dataField: "Nama",
+                        caption: "Nama Pemesan",
+                        allowEditing:false
+                    },
+                    {
+                        dataField: "NoWA",
+                        caption: "No. WA",
                         allowEditing:false
                     }
                 ],

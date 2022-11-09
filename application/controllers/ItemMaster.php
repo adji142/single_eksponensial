@@ -60,11 +60,29 @@ class ItemMaster extends CI_Controller {
 		$Harga 		= $this->input->post('Harga');
 		$formtype 	= $this->input->post('formtype');
 
+
+		$config['upload_path']="./Assets/images/upload";
+        $config['allowed_types']='gif|jpg|png';
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload',$config);
+
 		if ($formtype == 'add') {
+			if($this->upload->do_upload("file")){
+	            $data = array('upload_data' => $this->upload->data());
+	 
+	            $judul= $this->input->post('judul');
+	            $image= $data['upload_data']['file_name']; 
+	             
+	            // $result= $this->m_upload->simpan_upload($judul,$image);
+	            // echo json_decode($result);
+	        }
+
 			$param = array(
 				'kodeitem'	=> $kodeitem,
 				'namaitem'	=> $namaitem,
-				'Harga'		=> $Harga
+				'Harga'		=> $Harga,
+				'Image'	=> $image
 			);
 			try {
 				$rs = $this->ModelsExecuteMaster->ExecInsert($param,'titemmasterdata');
@@ -75,10 +93,21 @@ class ItemMaster extends CI_Controller {
 			}
 		}
 		elseif ($formtype == 'edit') {
+			if($this->upload->do_upload("file")){
+	            $data = array('upload_data' => $this->upload->data());
+	 
+	            $judul= $this->input->post('judul');
+	            $image= $data['upload_data']['file_name']; 
+	             
+	            // $result= $this->m_upload->simpan_upload($judul,$image);
+	            // echo json_decode($result);
+	        }
+
 			$param = array(
 				'kodeitem'	=> $kodeitem,
 				'namaitem'	=> $namaitem,
-				'Harga'		=> $Harga
+				'Harga'		=> $Harga,
+				'Image'	=> $image
 			);
 			try {
 				$rs = $this->ModelsExecuteMaster->ExecUpdate($param,array('kodeitem'=> $kodeitem),'titemmasterdata');
